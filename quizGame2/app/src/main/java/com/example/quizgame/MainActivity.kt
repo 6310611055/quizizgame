@@ -8,19 +8,24 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 
+data class QuizQuestion(
+    val question: String,
+    val options: List<String>,
+    val correctAnswer: String
+)
 
-
-
-
-/*class QuizViewModel : ViewModel() {
+class QuizViewModel : ViewModel() {
 
     private val _currentQuestionIndex = mutableStateOf(0)
     val currentQuestionIndex: State<Int> = _currentQuestionIndex
@@ -76,7 +81,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
         _selectedOption.value = null
         _score.value = 0
     }
-}*/
+}
 
 
 class MainActivity : ComponentActivity() {
@@ -145,3 +150,5 @@ fun QuizScreen(
         }
     }
 }
+
+
